@@ -22,3 +22,64 @@
   --intent-warning: #ffcc00;
   --aura-background: #ecf0f1;
 }
+
+.auraMainHeading {
+  color: var(--font-color-muted);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 16px;
+  letter-spacing: 0.3px;
+  text-transform: capitalize;
+  display: block;
+  cursor: default;
+  margin-bottom: 10px;
+}
+
+.auraMainHeading2 {
+  color: var(--font-color-muted);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: 0.3px;
+  text-transform: capitalize;
+  display: block;
+  cursor: default;
+  margin-bottom: 10px;
+}
+
+.auraMainSubHeading {
+  color: var(--font-color-muted);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 13px;
+  letter-spacing: 0.3px;
+  text-transform: capitalize;
+  display: block;
+  margin: 5px;
+  padding-left: 2px;
+  cursor: default;
+  margin-bottom: 10px;
+}
+
+.text-and-icon-center {
+  display: inline-flex !important;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.clickableHeading {
+  padding: 10px 10px;
+  cursor: pointer;
+  word-break: break-word;
+  color: var(--font-color-muted);
+  font-weight: bold;
+  /* color: "grey"; */
+  border-radius: 5px;
+  font-size: 14px;
+  &:hover {
+    color: #254685;
+    background-color: rgba(72, 113, 194, 0.1490196078);
+  }
+}

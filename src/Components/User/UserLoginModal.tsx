@@ -34,7 +34,7 @@ const UserLoginModal = () => {
           type: "UPDATE_STATE",
           payload: {
             isLoggedIn: {
-              id: data,
+              id: data.id,
               name: values.username,
             },
           },

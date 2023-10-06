@@ -5,4 +5,5 @@ export const initialState: TGlobalStoreState = {
   dispatch: () => null,
   isAppMounted: false,
   isLoggedIn: null,
+  currentRoom: null,
 };

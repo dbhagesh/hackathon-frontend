@@ -2,7 +2,7 @@ import { FC } from "react";
 interface LoaderType {
   size?: string;
 }
-const Loader: FC<LoaderType> = ({ size = "200" }: LoaderType) => {
+const Loader: FC<LoaderType> = ({ size = "40" }: LoaderType) => {
   return (
     <div className="loader">
       <svg

@@ -1,22 +1,27 @@
 import { Space, Table, Tag } from "antd";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { getQuestionsAPI } from "../../apis/apis";
 
 const QuestionList = () => {
   const columns: any = [
     {
-      title: "Name",
-      dataIndex: "name",
-      key: "name",
-      render: (text: any) => <a>{text}</a>,
+      title: "Title",
+      dataIndex: "title",
+      key: "title",
+      render: (text: any, record: any) => (
+        <Link to={`/quesiton/${record.id}`}>{text}</Link>
+      ),
     },
     {
-      title: "Age",
-      dataIndex: "age",
-      key: "age",
+      title: "Description",
+      dataIndex: "description",
+      key: "description",
     },
     {
-      title: "Address",
-      dataIndex: "address",
-      key: "address",
+      title: "Level",
+      dataIndex: "level",
+      key: "level",
     },
     {
       title: "Tags",
@@ -73,6 +78,10 @@ const QuestionList = () => {
       tags: ["cool", "teacher"],
     },
   ];
+
+  useEffect(() => {
+    getQuestionsAPI().then(() => {});
+  }, []);
 
   return (
     <div>

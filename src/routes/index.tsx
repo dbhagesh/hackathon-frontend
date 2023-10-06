@@ -4,6 +4,8 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Community from "../Components/Community/Community";
 import Home from "../Components/Home";
 import { QuestionList } from "../Components/Question";
+import { Room } from "../Components/Room";
+import Question from "../Components/Room/Question";
 import { UserLoginModal } from "../Components/User";
 import { useGlobalStore } from "../stores/global";
 import { TPageName, TRoute } from "../types/common";
@@ -46,9 +48,11 @@ const RouteController: FC = () => {
               {isLoggedIn ? (
                 <Route path="/home" element={<Home />}>
                   <Route path="questions" element={<QuestionList />} />
-                  <Route path="community" element={<Community />} />
+                  <Route path="community/:id" element={<Community />} />
                 </Route>
               ) : null}
+              <Route path="/room/:id" element={<Room />} />
+              <Route path="/question/:id" element={<Question />} />
               <Route path="*" element={<> Login first </>} />
             </Routes>
           </ErrorBoundary>

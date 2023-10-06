@@ -17,4 +17,5 @@ export type TGlobalStoreState = {
   dispatch: React.Dispatch<TGlobalAction> | TFunction;
   isAppMounted: boolean;
   isLoggedIn: TLoggedUser | null;
+  currentRoom: any;
 };
