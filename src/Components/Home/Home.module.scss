@@ -1,0 +1,20 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.leftPanel {
+  border-right: 1px solid var(--border-color-default);
+  width: 30vw;
+}
+
+.centerPanel {
+  // border-right : 1px solid var(--border-color-default)
+  width: 100%;
+}
+
+.rightPanel {
+  border-left: 1px solid var(--border-color-default);
+  width: 30vw;
+}
