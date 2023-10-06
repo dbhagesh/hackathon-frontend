@@ -40,6 +40,9 @@ const UserLoginModal = () => {
           },
         });
 
+        localStorage.setItem("id", data.id);
+        localStorage.setItem("name", values.username);
+
         navigate("/home/questions");
       })
       .catch((error: any) => {

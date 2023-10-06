@@ -1,21 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { FC, Suspense, useRef } from "react";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import Community from "../Components/Community/Community";
-import Home from "../Components/Home";
-import { QuestionList } from "../Components/Question";
-import { Room } from "../Components/Room";
-import Question from "../Components/Room/Question";
-import { UserLoginModal } from "../Components/User";
-import { useGlobalStore } from "../stores/global";
+import { FC, useRef } from "react";
+import { RouterProvider } from "react-router-dom";
 import { TPageName, TRoute } from "../types/common";
 import { generatePageUID } from "../utils/helpers/helper";
-import ErrorBoundary from "./ErrorBoundary";
-import Loader from "./loader";
+import { useRouter } from "./routes";
 
 const RouteController: FC = () => {
   const currentPageName = useRef<TPageName>();
-  const _onPathRender = (route: TRoute): any => {
+  const onPathRender = (route: TRoute): any => {
     const { component, pageName, shortPageName = "oth" } = route;
 
     if (pageName && pageName !== currentPageName.current) {
@@ -36,29 +28,7 @@ const RouteController: FC = () => {
 
     return component;
   };
-
-  const { isLoggedIn } = useGlobalStore();
-  return (
-    <>
-      <Router>
-        <Suspense fallback={<Loader />}>
-          <ErrorBoundary isFallbackRequired={true}>
-            <Routes>
-              <Route path="/login" element={<UserLoginModal />} />
-              {isLoggedIn ? (
-                <Route path="/home" element={<Home />}>
-                  <Route path="questions" element={<QuestionList />} />
-                  <Route path="community/:id" element={<Community />} />
-                </Route>
-              ) : null}
-              <Route path="/room/:id" element={<Room />} />
-              <Route path="/question/:id" element={<Question />} />
-              <Route path="*" element={<> Login first </>} />
-            </Routes>
-          </ErrorBoundary>
-        </Suspense>
-      </Router>
-    </>
-  );
+  const router = useRouter();
+  return <RouterProvider router={router} />
 };
 export default RouteController;
