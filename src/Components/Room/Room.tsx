@@ -5,6 +5,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { BiSolidUpArrow } from "react-icons/bi";
 import { useNavigate, useParams } from 'react-router-dom';
 import UpIcon from "../../asset/UpIcon.png";
+import Loader from '../../routes/loader';
 import { useGlobalStore } from '../../stores/global';
 import "./room.scss";
 
@@ -26,7 +27,7 @@ const Room = () => {
   const {id} = useParams();
   const navigate = useNavigate();
   const [defaultValue, setDefaultValue] = useState("#Write your code here");
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [compiling, setCompiling] = useState(false);
 
   const [questions, setQuestions] = useState([]);
@@ -85,9 +86,15 @@ const Room = () => {
     return undefined;
   }, [activeQuestionId])
 
+
   if(id === undefined || id === null) {
     navigate("/");
     return <></>
+  }
+
+
+  if(loading) {
+    return <Loader />
   }
 
   const items: TabsProps['items'] = questions?.map((q, index) => {
